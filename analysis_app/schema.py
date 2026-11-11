@@ -1,5 +1,5 @@
 FIELDS = {'observation_id': 'str', 'sample': 'str', 'line': 'str', 'day': 'int', 'new_value': 'float', 'old_value': 'float', 'operator': 'str', 'lot': 'str', 'valid': 'int'}
-REQUIRED = ['observation_id', 'sample', 'line', 'new_value']
+REQUIRED = ['observation_id', 'sample', 'line', 'day', 'new_value', 'operator', 'lot', 'valid']
 ENTITY = 'sample'
 GROUP = 'line'
 MEASURE = 'new_value'
