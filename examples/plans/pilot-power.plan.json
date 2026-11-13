@@ -1,0 +1,33 @@
+{
+  "alpha": 0.05,
+  "bounds": {
+    "lower": -0.2,
+    "unit": "微米",
+    "upper": 0.2
+  },
+  "clustering": {
+    "dimensions": [
+      "lot",
+      "operator"
+    ],
+    "method": "multiway_cluster_robust_cr1",
+    "unit": "sample"
+  },
+  "plan_fingerprint": "3a6d3f734739991192dc257822168be2267fd5d6c009da896b39470d5a914ac7",
+  "product": "measurement-equivalence",
+  "schema_version": 1,
+  "scope": {
+    "require_multiple_lots": true
+  },
+  "study_type": "paired_tost_equivalence",
+  "subgroups": {
+    "dimension": "line",
+    "include_overall": true,
+    "lines": [
+      "L0",
+      "L1",
+      "L2"
+    ],
+    "multiplicity": "holm"
+  }
+}

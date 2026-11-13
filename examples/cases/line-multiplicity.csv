@@ -1,0 +1,17 @@
+observation_id,sample,line,day,new_value,old_value,operator,lot,valid
+line-multiplicity-000,G0,L0,0,10.08,10.0,O0,A,1
+line-multiplicity-001,G1,L0,1,10.12,10.0,O1,B,1
+line-multiplicity-002,G2,L0,2,10.09,10.0,O2,C,1
+line-multiplicity-003,G3,L0,3,10.11,10.0,O0,D,1
+line-multiplicity-004,G4,L0,4,10.1,10.0,O1,A,1
+line-multiplicity-005,G5,L0,5,10.095,10.0,O2,B,1
+line-multiplicity-006,G6,L0,6,10.105,10.0,O0,C,1
+line-multiplicity-007,G7,L0,7,10.1,10.0,O1,D,1
+line-multiplicity-008,B0,L1,8,11.9,10.0,O0,A,1
+line-multiplicity-009,B1,L1,9,12.1,10.0,O1,B,1
+line-multiplicity-010,B2,L1,10,12.0,10.0,O2,C,1
+line-multiplicity-011,B3,L1,11,11.95,10.0,O0,D,1
+line-multiplicity-012,B4,L1,12,12.05,10.0,O1,A,1
+line-multiplicity-013,B5,L1,13,12.0,10.0,O2,B,1
+line-multiplicity-014,B6,L1,14,11.9,10.0,O0,C,1
+line-multiplicity-015,B7,L1,15,12.1,10.0,O1,D,1

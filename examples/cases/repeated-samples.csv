@@ -1,0 +1,11 @@
+observation_id,sample,line,day,new_value,old_value,operator,lot,valid
+repeated-samples-000,S0,L0,0,10.08,10.0,O0,A,1
+repeated-samples-001,S0,L0,1,10.1,10.0,O1,A,1
+repeated-samples-002,S0,L0,2,10.12,10.0,O2,A,1
+repeated-samples-003,S1,L0,3,10.09,10.0,O0,A,1
+repeated-samples-004,S1,L0,4,10.11,10.0,O1,A,1
+repeated-samples-005,S2,L0,5,10.1,10.0,O2,B,1
+repeated-samples-006,S2,L0,6,10.1,10.0,O0,B,1
+repeated-samples-007,S2,L0,7,10.1,10.0,O1,B,1
+repeated-samples-008,S3,L0,8,10.095,10.0,O1,B,1
+repeated-samples-009,S3,L0,9,10.105,10.0,O2,B,1

@@ -1,0 +1,9 @@
+observation_id,sample,line,day,new_value,old_value,operator,lot,valid
+no-valid-pairs-000,S0,L0,0,10.1,10.0,O0,A,0
+no-valid-pairs-001,S1,L0,1,10.11,,O1,B,0
+no-valid-pairs-002,S2,L0,2,10.12,10.0,O0,C,0
+no-valid-pairs-003,S3,L0,3,10.13,,O1,D,0
+no-valid-pairs-004,S4,L0,4,10.14,10.0,O0,A,0
+no-valid-pairs-005,S5,L0,5,10.15,,O1,B,0
+no-valid-pairs-006,S6,L0,6,10.16,10.0,O0,C,0
+no-valid-pairs-007,S7,L0,7,10.17,,O1,D,0

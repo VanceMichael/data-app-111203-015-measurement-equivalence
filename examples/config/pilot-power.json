@@ -1,0 +1,8 @@
+{
+  "lower": -0.2,
+  "upper": 0.2,
+  "alpha": 0.05,
+  "lines": ["L0", "L1", "L2"],
+  "cluster_dimensions": ["lot", "operator"],
+  "require_multiple_lots": true
+}

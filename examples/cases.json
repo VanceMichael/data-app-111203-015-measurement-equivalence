@@ -1,0 +1,322 @@
+{
+  "product": "measurement-equivalence",
+  "note": "每个例子由 examples 命令重新固化计划并分析；tolerance 用于浮点比较",
+  "tolerance": 1e-09,
+  "cases": [
+    {
+      "name": "no-valid-pairs",
+      "description": "全部观测 valid=0 或无旧值：没有有效配对，结论只能是不可估计",
+      "input": "cases/no-valid-pairs.csv",
+      "plan": {
+        "schema_version": 1,
+        "product": "measurement-equivalence",
+        "study_type": "paired_tost_equivalence",
+        "bounds": {
+          "lower": -0.5,
+          "upper": 0.5,
+          "unit": "微米"
+        },
+        "alpha": 0.05,
+        "clustering": {
+          "unit": "sample",
+          "dimensions": [
+            "lot",
+            "operator"
+          ],
+          "method": "multiway_cluster_robust_cr1"
+        },
+        "subgroups": {
+          "dimension": "line",
+          "lines": [
+            "L0"
+          ],
+          "include_overall": true,
+          "multiplicity": "holm"
+        },
+        "scope": {
+          "require_multiple_lots": true
+        }
+      },
+      "expect": {
+        "verdict": "unavailable",
+        "valid_pairs": 0,
+        "samples": 0,
+        "scope_ok": false,
+        "verdict_counts": {
+          "equivalent": 0,
+          "not_proven": 0,
+          "unavailable": 2
+        },
+        "comparisons[overall].status": "unavailable",
+        "comparisons[overall].verdict": "unavailable",
+        "comparisons[overall].estimate": null,
+        "comparisons[overall].p_adjusted": null
+      }
+    },
+    {
+      "name": "zero-variance",
+      "description": "每个 sample 的差值完全相同：方差为零，不能伪造区间或 p 值",
+      "input": "cases/zero-variance.csv",
+      "plan": {
+        "schema_version": 1,
+        "product": "measurement-equivalence",
+        "study_type": "paired_tost_equivalence",
+        "bounds": {
+          "lower": -0.5,
+          "upper": 0.5,
+          "unit": "微米"
+        },
+        "alpha": 0.05,
+        "clustering": {
+          "unit": "sample",
+          "dimensions": [
+            "lot",
+            "operator"
+          ],
+          "method": "multiway_cluster_robust_cr1"
+        },
+        "subgroups": {
+          "dimension": "line",
+          "lines": [
+            "L0"
+          ],
+          "include_overall": true,
+          "multiplicity": "holm"
+        },
+        "scope": {
+          "require_multiple_lots": true
+        }
+      },
+      "expect": {
+        "verdict": "unavailable",
+        "valid_pairs": 8,
+        "samples": 8,
+        "comparisons[overall].status": "unavailable",
+        "comparisons[overall].reason": "配对差值方差为零",
+        "comparisons[overall].standard_error": null
+      }
+    },
+    {
+      "name": "mean-at-bound",
+      "description": "样本均值正好等于上界 0.5：单侧检验不能拒绝，区间跨出界值，只能未证明",
+      "input": "cases/mean-at-bound.csv",
+      "plan": {
+        "schema_version": 1,
+        "product": "measurement-equivalence",
+        "study_type": "paired_tost_equivalence",
+        "bounds": {
+          "lower": -0.5,
+          "upper": 0.5,
+          "unit": "微米"
+        },
+        "alpha": 0.05,
+        "clustering": {
+          "unit": "sample",
+          "dimensions": [
+            "lot",
+            "operator"
+          ],
+          "method": "multiway_cluster_robust_cr1"
+        },
+        "subgroups": {
+          "dimension": "line",
+          "lines": [
+            "L0"
+          ],
+          "include_overall": true,
+          "multiplicity": "holm"
+        },
+        "scope": {
+          "require_multiple_lots": true
+        }
+      },
+      "expect": {
+        "verdict": "not_proven",
+        "comparisons[overall].status": "estimated",
+        "comparisons[overall].estimate": 0.5,
+        "comparisons[overall].within_bounds": false,
+        "comparisons[overall].verdict": "not_proven",
+        "comparisons[overall].p_adjusted": 1.0
+      }
+    },
+    {
+      "name": "asymmetric-bounds",
+      "description": "上下界不对称 -0.05 与 0.3：界值按原始微米登记，判定同时依赖两个单侧检验",
+      "input": "cases/asymmetric-bounds.csv",
+      "plan": {
+        "schema_version": 1,
+        "product": "measurement-equivalence",
+        "study_type": "paired_tost_equivalence",
+        "bounds": {
+          "lower": -0.05,
+          "upper": 0.3,
+          "unit": "微米"
+        },
+        "alpha": 0.05,
+        "clustering": {
+          "unit": "sample",
+          "dimensions": [
+            "lot",
+            "operator"
+          ],
+          "method": "multiway_cluster_robust_cr1"
+        },
+        "subgroups": {
+          "dimension": "line",
+          "lines": [
+            "L0"
+          ],
+          "include_overall": true,
+          "multiplicity": "holm"
+        },
+        "scope": {
+          "require_multiple_lots": true
+        }
+      },
+      "expect": {
+        "verdict": "equivalent",
+        "comparisons[overall].status": "estimated",
+        "comparisons[overall].estimate": 0.1,
+        "comparisons[overall].within_bounds": true,
+        "comparisons[overall].verdict": "equivalent"
+      }
+    },
+    {
+      "name": "repeated-samples",
+      "description": "同一 sample 重复送样：按 sample 合并为分析单位，10 条观测只形成 4 个单位",
+      "input": "cases/repeated-samples.csv",
+      "plan": {
+        "schema_version": 1,
+        "product": "measurement-equivalence",
+        "study_type": "paired_tost_equivalence",
+        "bounds": {
+          "lower": -0.5,
+          "upper": 0.5,
+          "unit": "微米"
+        },
+        "alpha": 0.05,
+        "clustering": {
+          "unit": "sample",
+          "dimensions": [
+            "lot",
+            "operator"
+          ],
+          "method": "multiway_cluster_robust_cr1"
+        },
+        "subgroups": {
+          "dimension": "line",
+          "lines": [
+            "L0"
+          ],
+          "include_overall": true,
+          "multiplicity": "holm"
+        },
+        "scope": {
+          "require_multiple_lots": true
+        }
+      },
+      "expect": {
+        "verdict": "equivalent",
+        "valid_pairs": 10,
+        "samples": 4,
+        "comparisons[overall].units": 4,
+        "comparisons[overall].observations": 10,
+        "comparisons[overall].repeated_samples": 4
+      }
+    },
+    {
+      "name": "single-lot",
+      "description": "只有一批材料：lot 维度不可估计并被省略，研究不能声明跨批适用",
+      "input": "cases/single-lot.csv",
+      "plan": {
+        "schema_version": 1,
+        "product": "measurement-equivalence",
+        "study_type": "paired_tost_equivalence",
+        "bounds": {
+          "lower": -0.5,
+          "upper": 0.5,
+          "unit": "微米"
+        },
+        "alpha": 0.05,
+        "clustering": {
+          "unit": "sample",
+          "dimensions": [
+            "lot",
+            "operator"
+          ],
+          "method": "multiway_cluster_robust_cr1"
+        },
+        "subgroups": {
+          "dimension": "line",
+          "lines": [
+            "L0"
+          ],
+          "include_overall": true,
+          "multiplicity": "holm"
+        },
+        "scope": {
+          "require_multiple_lots": true
+        }
+      },
+      "expect": {
+        "verdict": "not_proven",
+        "scope_ok": false,
+        "scope_issues.single_lot": true,
+        "comparisons[overall].status": "estimated",
+        "comparisons[overall].within_bounds": true,
+        "comparisons[overall].verdict": "not_proven",
+        "comparisons[overall].reason": "只有一批材料，不能跨批外推",
+        "comparisons[overall].omitted_clusters": [
+          "lot"
+        ]
+      }
+    },
+    {
+      "name": "line-multiplicity",
+      "description": "两条预设产线中一条通过、一条失败：总体仍为未证明，不能只发布通过的产线",
+      "input": "cases/line-multiplicity.csv",
+      "plan": {
+        "schema_version": 1,
+        "product": "measurement-equivalence",
+        "study_type": "paired_tost_equivalence",
+        "bounds": {
+          "lower": -0.5,
+          "upper": 0.5,
+          "unit": "微米"
+        },
+        "alpha": 0.05,
+        "clustering": {
+          "unit": "sample",
+          "dimensions": [
+            "lot",
+            "operator"
+          ],
+          "method": "multiway_cluster_robust_cr1"
+        },
+        "subgroups": {
+          "dimension": "line",
+          "lines": [
+            "L0",
+            "L1"
+          ],
+          "include_overall": true,
+          "multiplicity": "holm"
+        },
+        "scope": {
+          "require_multiple_lots": true
+        }
+      },
+      "expect": {
+        "verdict": "not_proven",
+        "verdict_counts": {
+          "equivalent": 1,
+          "not_proven": 2,
+          "unavailable": 0
+        },
+        "comparisons[line:L0].verdict": "equivalent",
+        "comparisons[line:L1].verdict": "not_proven",
+        "comparisons[overall].verdict": "not_proven"
+      }
+    }
+  ]
+}

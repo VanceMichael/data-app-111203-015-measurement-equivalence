@@ -20,4 +20,16 @@
 
 ## 业务字段语义
 
-new_value 与 old_value 均为微米；old_value 可空。valid=1 表示可用配对，valid=0 表示不可用于配对比较。sample 可跨操作员和日期重复测量，lot 是样品批次，line 为产线。
+new_value 与 old_value 均为微米；old_value 可空。valid=1 表示可用配对，valid=0 表示不可用于配对比较，两者都不进入配对推断。sample 可跨操作员和日期重复测量，lot 是样品批次，line 为产线。
+
+## 等效性研究中的使用
+
+- 配对差值取 `new_value - old_value`，仅用于 `valid=1` 且旧值非空的观测。
+- `sample` 是重复测量的分析单位：同一 sample 的多条观测先合并为差值均值，
+  再做配对 TOST，重复送样不按独立样本计数。
+- `lot` 与 `operator` 作为聚类维度处理相关性；`sample` 必须各自只属于一个
+  `lot`。跨批的 sample 无法定义批次聚类，该判定记为不可估计；跨线的
+  sample 会记录在 `scope_issues` 并阻止等效声明，但不进入任何产线亚组。
+- `line` 是预设亚组，计划中列出的每条产线都要判定；不能事后挑选通过的产线。
+
+字段类型与空值规则仍遵循上表，额外列不进入当前核算。

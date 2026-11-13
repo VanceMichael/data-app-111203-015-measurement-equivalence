@@ -1,0 +1,9 @@
+observation_id,sample,line,day,new_value,old_value,operator,lot,valid
+single-lot-000,S0,L0,0,10.08,10.0,O0,A,1
+single-lot-001,S1,L0,1,10.12,10.0,O1,A,1
+single-lot-002,S2,L0,2,10.09,10.0,O2,A,1
+single-lot-003,S3,L0,3,10.11,10.0,O0,A,1
+single-lot-004,S4,L0,4,10.1,10.0,O1,A,1
+single-lot-005,S5,L0,5,10.095,10.0,O2,A,1
+single-lot-006,S6,L0,6,10.105,10.0,O0,A,1
+single-lot-007,S7,L0,7,10.1,10.0,O1,A,1

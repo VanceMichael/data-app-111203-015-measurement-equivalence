@@ -1,0 +1,214 @@
+{
+  "alpha": 0.05,
+  "bounds": {
+    "lower": -0.5,
+    "unit": "微米",
+    "upper": 0.5
+  },
+  "clustering": {
+    "dimensions": [
+      "lot",
+      "operator"
+    ],
+    "independent_unit_note": "重复送样按 sample 合并，不作为独立单位",
+    "method": "multiway_cluster_robust_cr1",
+    "unit": "sample"
+  },
+  "comparisons": [
+    {
+      "clusters": {
+        "lot": 4,
+        "operator": 3
+      },
+      "degrees_of_freedom": 2,
+      "estimate": 0.12076234502424109,
+      "group": "overall",
+      "interval_1_minus_2alpha": [
+        0.10540566114879782,
+        0.13611902889968436
+      ],
+      "lots": 4,
+      "maximum_repeats": 10,
+      "multiple_testing": {
+        "alpha": 0.05,
+        "family_size": 4,
+        "method": "holm",
+        "p_adjusted": 0.00038451678850166544,
+        "reject": true
+      },
+      "observations": 240,
+      "omitted_clusters": [],
+      "operators": 3,
+      "p_adjusted": 0.00038451678850166544,
+      "p_lower": 3.5884425181431645e-05,
+      "p_upper": 9.612919712541636e-05,
+      "p_value": 9.612919712541636e-05,
+      "reason": null,
+      "repeated_samples": 24,
+      "scope": null,
+      "standard_error": 0.005259164284497323,
+      "status": "estimated",
+      "units": 24,
+      "value": null,
+      "verdict": "equivalent",
+      "within_bounds": true
+    },
+    {
+      "clusters": {
+        "lot": 4,
+        "operator": 3
+      },
+      "degrees_of_freedom": 2,
+      "estimate": 0.15952623515142064,
+      "group": "line:L0",
+      "interval_1_minus_2alpha": [
+        0.09751567433233731,
+        0.22153679597050396
+      ],
+      "lots": 4,
+      "maximum_repeats": 10,
+      "multiple_testing": {
+        "alpha": 0.05,
+        "family_size": 4,
+        "method": "holm",
+        "p_adjusted": 0.002480496524494699,
+        "reject": true
+      },
+      "observations": 80,
+      "omitted_clusters": [],
+      "operators": 3,
+      "p_adjusted": 0.002480496524494699,
+      "p_lower": 0.000517607984036772,
+      "p_upper": 0.0019339586277464754,
+      "p_value": 0.0019339586277464754,
+      "reason": null,
+      "repeated_samples": 8,
+      "scope": "line",
+      "standard_error": 0.0212365983025068,
+      "status": "estimated",
+      "units": 8,
+      "value": "L0",
+      "verdict": "equivalent",
+      "within_bounds": true
+    },
+    {
+      "clusters": {
+        "lot": 4,
+        "operator": 3
+      },
+      "degrees_of_freedom": 2,
+      "estimate": 0.1272303378437581,
+      "group": "line:L1",
+      "interval_1_minus_2alpha": [
+        0.07291784970869578,
+        0.1815428259788204
+      ],
+      "lots": 4,
+      "maximum_repeats": 10,
+      "multiple_testing": {
+        "alpha": 0.05,
+        "family_size": 4,
+        "method": "holm",
+        "p_adjusted": 0.002480496524494699,
+        "reject": true
+      },
+      "observations": 80,
+      "omitted_clusters": [],
+      "operators": 3,
+      "p_adjusted": 0.002480496524494699,
+      "p_lower": 0.00043911822593245553,
+      "p_upper": 0.0012402482622473495,
+      "p_value": 0.0012402482622473495,
+      "reason": null,
+      "repeated_samples": 8,
+      "scope": "line",
+      "standard_error": 0.018600259021992752,
+      "status": "estimated",
+      "units": 8,
+      "value": "L1",
+      "verdict": "equivalent",
+      "within_bounds": true
+    },
+    {
+      "clusters": {
+        "lot": 4,
+        "operator": 3
+      },
+      "degrees_of_freedom": 2,
+      "estimate": 0.0755304620775445,
+      "group": "line:L2",
+      "interval_1_minus_2alpha": [
+        0.026725971565039627,
+        0.12433495259004938
+      ],
+      "lots": 4,
+      "maximum_repeats": 10,
+      "multiple_testing": {
+        "alpha": 0.05,
+        "family_size": 4,
+        "method": "holm",
+        "p_adjusted": 0.002320319249659041,
+        "reject": true
+      },
+      "observations": 80,
+      "omitted_clusters": [],
+      "operators": 3,
+      "p_adjusted": 0.002320319249659041,
+      "p_lower": 0.0004211555620992069,
+      "p_upper": 0.0007734397498863471,
+      "p_value": 0.0007734397498863471,
+      "reason": null,
+      "repeated_samples": 8,
+      "scope": "line",
+      "standard_error": 0.016713949151280896,
+      "status": "estimated",
+      "units": 8,
+      "value": "L2",
+      "verdict": "equivalent",
+      "within_bounds": true
+    }
+  ],
+  "cross_lot": true,
+  "definitions": {
+    "equivalent": "总体与全部预设产线在 Holm 家族内均拒绝两个单侧原假设，1-2α 区间落在界值内，且研究范围满足",
+    "interval": "与配对 TOST 对应的双侧 1-2α 区间",
+    "not_proven": "至少一个计划判定未通过，或只有一批材料等范围前提不满足",
+    "unavailable": "有效配对不足、方差为零或聚类不足，不能给出判定"
+  },
+  "excluded_rows": 48,
+  "input_fingerprint": "435bcf50d0eb865d49af78a67190d7dd0668eec033b64adec94e777543c4884a",
+  "lots": 4,
+  "multiple_testing": {
+    "all_rejected": true,
+    "alpha": 0.05,
+    "family": [
+      "overall",
+      "line:L0",
+      "line:L1",
+      "line:L2"
+    ],
+    "method": "holm"
+  },
+  "operators": 3,
+  "plan_fingerprint": "761b8a8f48512430663876a82e4fbf58cdeddb2744890ae8eaeae4bafb2c9395",
+  "product": "measurement-equivalence",
+  "samples": 24,
+  "scope_issues": {
+    "lots": 4,
+    "missing_planned_lines": [],
+    "samples_spanning_lines": [],
+    "samples_spanning_lots": [],
+    "single_lot": false,
+    "unknown_lines": []
+  },
+  "scope_ok": true,
+  "study_type": "paired_tost_equivalence",
+  "unit": "微米",
+  "valid_pairs": 240,
+  "verdict": "equivalent",
+  "verdict_counts": {
+    "equivalent": 4,
+    "not_proven": 0,
+    "unavailable": 0
+  }
+}

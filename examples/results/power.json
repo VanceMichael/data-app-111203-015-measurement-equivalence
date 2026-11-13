@@ -1,0 +1,55 @@
+{
+  "alpha": 0.05,
+  "assumed_true_difference": 0.17,
+  "bounds": {
+    "lower": -0.2,
+    "upper": 0.2
+  },
+  "curve": [
+    {
+      "critical_value": 1.7958848187039962,
+      "power": 0.16058139622679157,
+      "sample_size": 12,
+      "standard_error": 0.03732208493129767
+    },
+    {
+      "critical_value": 1.713871527747017,
+      "power": 0.2819334487714499,
+      "sample_size": 24,
+      "standard_error": 0.026390699342940842
+    },
+    {
+      "critical_value": 1.6895724577802298,
+      "power": 0.3831086499186634,
+      "sample_size": 36,
+      "standard_error": 0.021547915781802787
+    },
+    {
+      "critical_value": 1.6710930321038973,
+      "power": 0.5502483597096203,
+      "sample_size": 60,
+      "standard_error": 0.01669094379368043
+    },
+    {
+      "critical_value": 1.662155325869719,
+      "power": 0.705118297314692,
+      "sample_size": 90,
+      "standard_error": 0.013628098539996922
+    },
+    {
+      "critical_value": 1.6577592849428697,
+      "power": 0.8116849698160504,
+      "sample_size": 120,
+      "standard_error": 0.011802279540914952
+    }
+  ],
+  "design_effect": 4.0,
+  "effective_variance": 0.01671525628342796,
+  "note": "功效基于假定的真实偏移，不是观测证据；不得作为等效结论。",
+  "pilot_units": 24,
+  "pilot_variance": 0.00417881407085699,
+  "plan_fingerprint": "3a6d3f734739991192dc257822168be2267fd5d6c009da896b39470d5a914ac7",
+  "smallest_size_at_target": 120,
+  "target_power": 0.8,
+  "unit": "微米"
+}
